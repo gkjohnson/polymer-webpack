@@ -30,6 +30,19 @@ element-b.html
 
 Normally, in a single project, any redundant elements like `polymer.html` and `common-element.html` would be deduped during import or webpack. However, including the two bundles produced from these two elements separately will cause errors on the page from Polymer and `common-element` being included multiple times.
 
+## Use
+Use webpack-script-guard on any javascript output from a weback loader or a javascript file:
+```javascript
+{
+  test: /.html$/,
+  use: [
+    { loader: 'babel-loader' },
+    { loader: 'webpack-guard-script' },
+    { loader: 'wc-loader' }
+  ]
+}
+```
+
 ## Gotchas
 The guard does not work in every case. For example, when Polymer is included separately in the application without being packed with this plugin, the errors will still occur. It is suggested that elements be packed in a `full` and `lite` way such that external applications with problems can import dependency libraries themselves.
 
