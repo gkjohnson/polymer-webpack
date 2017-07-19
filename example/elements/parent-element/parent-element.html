@@ -1,0 +1,20 @@
+<link rel="import" href="./node_modules/@polymer/polymer/polymer-element.html" />
+<link rel="import" href="../child-element/child-element.html" />
+
+<dom-module id="parent-element">
+	<style></style>
+	<template>
+		<h1>Parent Element</h1>
+		<child-element name="test-a"></child-element>
+		<child-element name="test-b"></child-element>
+		<child-element name="test-c"></child-element>
+	</template>
+</dom-module>
+<script type="text/javascript">
+	
+	class ParentElement extends Polymer.Element {
+		static get is() { return 'parent-element' }
+	}
+
+	customElements.define(ParentElement.is, ParentElement)
+</script>

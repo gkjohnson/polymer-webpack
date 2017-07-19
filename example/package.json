@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack & webpack --env.less & webpack --env.separate & webpack --env.less --env.separate",
+    "serve": "static-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webcomponentsjs": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "static-server": "^2.0.5",
+    "wc-loader": "^1.1.5",
+    "webpack": "^3.3.0"
+  }
+}

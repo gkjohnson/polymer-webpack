@@ -1,0 +1,14 @@
+{
+  "name": "parent-element",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@polymer/polymer": "^2.0.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
