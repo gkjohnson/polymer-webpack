@@ -17,8 +17,8 @@ const config = function(env) {
   }
 
   // whether to bundle all dependencies or not
-  if(env && env.less) {
-    suffix += '.less'
+  if(env && env.lite) {
+    suffix += '.lite'
     skipNodeModules = true
   } else {
     suffix += '.full'
