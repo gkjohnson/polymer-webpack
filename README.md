@@ -1,1 +1,1 @@
-# polymer-webpack
+# webpack-script-guard
