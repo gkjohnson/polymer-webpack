@@ -68,8 +68,9 @@
 /***/ (function(module, exports) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html';
+const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -135,8 +136,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html';
+const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -202,8 +204,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html';
+const guardDef = 'a9d257423037143d8621978730f4aca5';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -305,8 +308,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html';
+const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -380,8 +384,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html';
+const guardDef = 'a9d257423037143d8621978730f4aca5';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -483,8 +488,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html';
+const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -558,8 +564,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html';
+const guardDef = '5d8e684485cdb7697d049429fc965a0f';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -618,8 +625,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html';
+const guardDef = '5d8e684485cdb7697d049429fc965a0f';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -678,8 +686,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\child-element.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\child-element.html';
+const guardDef = 'cb25a97b08c38293426ab4bb70255fa6';
 if (!(guardDef in window.__scriptguards__)) {
 	window.__scriptguards__[guardDef] = true;
 	/*__wc__loader*/!function (a) {
@@ -721,8 +730,9 @@ module.exports = __webpack_require__(20);
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\polymer-element.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\polymer-element.html';
+const guardDef = '54411a239444e878a8abf4a1c1d5b82d';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -763,8 +773,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html';
+const guardDef = 'a07e4e297ecce6abf750b598cc36e303';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -1592,8 +1603,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html';
+const guardDef = '45f634a41260c7316f8d1d5ce3dd1286';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -1656,8 +1668,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html';
+const guardDef = '4ea87f90c5c4eec5acde2469a92ff1a3';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -1808,8 +1821,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html';
+const guardDef = '4bab3ef7196f3e9b445d4dff2c94763e';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -1946,8 +1960,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html';
+const guardDef = 'f66621cbff6b433476b9eeb2e4a5555a';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -4618,8 +4633,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html';
+const guardDef = '1f9c1ba8b36ed7dee7e1dc16204b58a1';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -4900,8 +4916,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html';
+const guardDef = '912b5c75bf738d9830fd0a67066491d2';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -5523,8 +5540,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html';
+const guardDef = 'd9017f4f77c4c5499dd8f770ed4a657a';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -5728,8 +5746,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html';
+const guardDef = '56b0851913eb124ac350606f57540755';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -6209,8 +6228,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\parent-element.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\parent-element.html';
+const guardDef = 'd5efae7334fab6e67a5d5e8637cf354a';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/!function (a) {
@@ -6237,8 +6257,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\polymer-element.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\polymer-element.html';
+const guardDef = '54411a239444e878a8abf4a1c1d5b82d';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -6279,8 +6300,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html';
+const guardDef = 'a07e4e297ecce6abf750b598cc36e303';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -7108,8 +7130,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html';
+const guardDef = '45f634a41260c7316f8d1d5ce3dd1286';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -7172,8 +7195,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html';
+const guardDef = '4ea87f90c5c4eec5acde2469a92ff1a3';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -7324,8 +7348,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html';
+const guardDef = '4bab3ef7196f3e9b445d4dff2c94763e';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -7462,8 +7487,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html';
+const guardDef = 'f66621cbff6b433476b9eeb2e4a5555a';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -10134,8 +10160,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html';
+const guardDef = '1f9c1ba8b36ed7dee7e1dc16204b58a1';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -10416,8 +10443,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html';
+const guardDef = '912b5c75bf738d9830fd0a67066491d2';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -11039,8 +11067,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html';
+const guardDef = 'd9017f4f77c4c5499dd8f770ed4a657a';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
@@ -11244,8 +11273,9 @@ if (!(guardDef in window.__scriptguards__)) {
 /***/ (function(module, exports, __webpack_require__) {
 
 
+// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html
 window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html';
+const guardDef = '56b0851913eb124ac350606f57540755';
 if (!(guardDef in window.__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/

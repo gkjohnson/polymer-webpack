@@ -4,32 +4,34 @@ const fs = require('fs')
 const config = function(env) {
 
   const elements = fs.readdirSync('./elements')
-  let suffix = null
-  let prefix = null
+  let loaders = [{ loader: 'babel-loader' }, { loader: '../index.js'}, { loader: 'wc-loader' }]
+  let suffix = ''
+  let prefix = ''
   let entry = null
   let skipNodeModules = false
 
+  // Whether output unguarded bundles or not
+  if(env && env.unguarded) {
+    loaders = [{ loader: 'babel-loader' }, { loader: 'wc-loader' }]
+    suffix = '.unguarded'
+  }
+
+  // whether to bundle all dependencies or not
   if(env && env.less) {
-    // no node modules
-    suffix = '.less'
+    suffix += '.less'
     skipNodeModules = true
   } else {
-    // inlude everything
-    suffix = '.full'
+    suffix += '.full'
     skipNodeModules = false
   }
 
+  // whether to bundle as separate element files or not
   if(env && env.separate) {
-    // separate
     entry = {}
     elements.forEach(dir => entry[`${dir}.bundle${suffix}`] = `./elements/${dir}/${dir}.html`)
   } else {
-    // complete
     entry = { [`bundle${suffix}`] : elements.map(dir => `./elements/${dir}/${dir}.html`) }
   }
-
-
-
 
   return {
     entry,
@@ -42,11 +44,7 @@ const config = function(env) {
       rules: [
         {
           test: /\.html$/,
-          use: [
-            { loader: 'babel-loader' },
-            { loader: '../index.js' },
-            { loader: 'wc-loader' },
-          ]
+          use: loaders
         },
         {
           test: /\.js$/,

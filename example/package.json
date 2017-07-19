@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack & webpack --env.less & webpack --env.separate & webpack --env.less --env.separate",
+    "build": "webpack & webpack --env.unguarded & webpack --env.separate & webpack --env.separate --env.unguarded",
     "serve": "static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
