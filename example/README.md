@@ -15,7 +15,7 @@ Demonstrates the failure case without script gaurding. Multiple bundled elements
 ### index-guarded.html
 Demonstrates loading multiple bundled element scripts with guards running without failure
 
-## Webpack Config
+## Webpack Config Arguments
 ### --env.lite
 Bundles without any node modules
 
