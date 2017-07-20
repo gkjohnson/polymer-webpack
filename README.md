@@ -37,7 +37,7 @@ Use webpack-script-guard on any javascript output from a weback loader or a java
   test: /.html$/,
   use: [
     { loader: 'babel-loader' },
-    { loader: 'webpack-guard-script' },
+    { loader: 'webpack-script-guard' },
     { loader: 'wc-loader' }
   ]
 }
