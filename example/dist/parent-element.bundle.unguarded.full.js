@@ -576,7 +576,7 @@ __webpack_require__(1);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*__wc__loader*/!function (a) {
-	var b = "<dom-module id=\"child-element\">\n\t<style></style>\n\t<template>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
+	var b = "<dom-module id=\"child-element\">\n\t<template>\n\t\t<style></style>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
 		var c = a.body,
 		    d = a.createElement("div");for (d.innerHTML = b; d.children.length > 0;) c.appendChild(d.children[0]);
 	} else a.write(b);
@@ -6087,7 +6087,7 @@ __webpack_require__(1);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*__wc__loader*/!function (a) {
-	var b = "<dom-module id=\"parent-element\">\n\t<style></style>\n\t<template>\n\t\t<h1>Parent Element</h1>\n\t\t<child-element name=\"test-a\"></child-element>\n\t\t<child-element name=\"test-b\"></child-element>\n\t\t<child-element name=\"test-c\"></child-element>\n\t</template>\n</dom-module>\n";if (a.body) {
+	var b = "<dom-module id=\"parent-element\">\n\t<template>\n\t\t<style></style>\n\t\t<h1>Parent Element</h1>\n\t\t<child-element name=\"test-a\"></child-element>\n\t\t<child-element name=\"test-b\"></child-element>\n\t\t<child-element name=\"test-c\"></child-element>\n\t</template>\n</dom-module>\n";if (a.body) {
 		var c = a.body,
 		    d = a.createElement("div");for (d.innerHTML = b; d.children.length > 0;) c.appendChild(d.children[0]);
 	} else a.write(b);

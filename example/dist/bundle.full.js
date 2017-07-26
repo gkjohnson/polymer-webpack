@@ -60,86 +60,42 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
+var g;
 
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
-if (!(guardDef in window.__scriptguards__)) {
-  window.__scriptguards__[guardDef] = true;
-  /*__wc__loader*/
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
 
-  (function () {
-    'use strict';
-
-    const userPolymer = window.Polymer;
-
-    /**
-     * @namespace Polymer
-     * @summary Polymer is a lightweight library built on top of the web
-     *   standards-based Web Components API's, and makes it easy to build your
-     *   own custom HTML elements.
-     * @param {!PolymerInit} info Prototype for the custom element. It must contain
-     *   an `is` property to specify the element name. Other properties populate
-     *   the element prototype. The `properties`, `observers`, `hostAttributes`,
-     *   and `listeners` properties are processed to create element features.
-     * @return {!Object} Returns a custom element class for the given provided
-     *   prototype `info` object. The name of the element if given by `info.is`.
-     */
-    window.Polymer = function (info) {
-      return window.Polymer._polymerFn(info);
-    };
-
-    // support user settings on the Polymer object
-    if (userPolymer) {
-      Object.assign(Polymer, userPolymer);
-    }
-
-    // To be plugged by legacy implementation if loaded
-    /* eslint-disable valid-jsdoc */
-    /**
-     * @param {!PolymerInit} info Prototype for the custom element. It must contain
-     *   an `is` property to specify the element name. Other properties populate
-     *   the element prototype. The `properties`, `observers`, `hostAttributes`,
-     *   and `listeners` properties are processed to create element features.
-     * @return {!Object} Returns a custom element class for the given provided
-     *   prototype `info` object. The name of the element if given by `info.is`.
-     */
-    window.Polymer._polymerFn = function (info) {
-      // eslint-disable-line no-unused-vars
-      throw new Error('Load polymer.html to use the Polymer() function.');
-    };
-    /* eslint-enable */
-
-    window.Polymer.version = '2.0.1';
-
-    /* eslint-disable no-unused-vars */
-    /*
-    When using Closure Compiler, JSCompiler_renameProperty(property, object) is replaced by the munged name for object[property]
-    We cannot alias this function, so we have to use a small shim that has the same behavior when not compiling.
-    */
-    window.JSCompiler_renameProperty = function (prop, obj) {
-      return prop;
-    };
-    /* eslint-enable */
-  })();
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
 }
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
 
@@ -198,196 +154,84 @@ if (!(guardDef in window.__scriptguards__)) {
     /* eslint-enable */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'a9d257423037143d8621978730f4aca5';
-if (!(guardDef in window.__scriptguards__)) {
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
 
   (function () {
     'use strict';
 
-    let CSS_URL_RX = /(url\()([^)]*)(\))/g;
-    let ABS_URL = /(^\/)|(^#)|(^[\w-\d]*:)/;
-    let workingURL;
-    let resolveDoc;
-    /**
-     * Resolves the given URL against the provided `baseUri'.
-     *
-     * @memberof Polymer.ResolveUrl
-     * @param {string} url Input URL to resolve
-     * @param {?string=} baseURI Base URI to resolve the URL against
-     * @return {string} resolved URL
-     */
-    function resolveUrl(url, baseURI) {
-      if (url && ABS_URL.test(url)) {
-        return url;
-      }
-      // Lazy feature detection.
-      if (workingURL === undefined) {
-        workingURL = false;
-        try {
-          const u = new URL('b', 'http://a');
-          u.pathname = 'c%20d';
-          workingURL = u.href === 'http://a/c%20d';
-        } catch (e) {
-          // silently fail
-        }
-      }
-      if (!baseURI) {
-        baseURI = document.baseURI || window.location.href;
-      }
-      if (workingURL) {
-        return new URL(url, baseURI).href;
-      }
-      // Fallback to creating an anchor into a disconnected document.
-      if (!resolveDoc) {
-        resolveDoc = document.implementation.createHTMLDocument('temp');
-        resolveDoc.base = resolveDoc.createElement('base');
-        resolveDoc.head.appendChild(resolveDoc.base);
-        resolveDoc.anchor = resolveDoc.createElement('a');
-        resolveDoc.body.appendChild(resolveDoc.anchor);
-      }
-      resolveDoc.base.href = baseURI;
-      resolveDoc.anchor.href = url;
-      return resolveDoc.anchor.href || url;
-    }
+    const userPolymer = window.Polymer;
 
     /**
-     * Resolves any relative URL's in the given CSS text against the provided
-     * `ownerDocument`'s `baseURI`.
-     *
-     * @memberof Polymer.ResolveUrl
-     * @param {string} cssText CSS text to process
-     * @param {string} baseURI Base URI to resolve the URL against
-     * @return {string} Processed CSS text with resolved URL's
+     * @namespace Polymer
+     * @summary Polymer is a lightweight library built on top of the web
+     *   standards-based Web Components API's, and makes it easy to build your
+     *   own custom HTML elements.
+     * @param {!PolymerInit} info Prototype for the custom element. It must contain
+     *   an `is` property to specify the element name. Other properties populate
+     *   the element prototype. The `properties`, `observers`, `hostAttributes`,
+     *   and `listeners` properties are processed to create element features.
+     * @return {!Object} Returns a custom element class for the given provided
+     *   prototype `info` object. The name of the element if given by `info.is`.
      */
-    function resolveCss(cssText, baseURI) {
-      return cssText.replace(CSS_URL_RX, function (m, pre, url, post) {
-        return pre + '\'' + resolveUrl(url.replace(/["']/g, ''), baseURI) + '\'' + post;
-      });
-    }
-
-    /**
-     * Returns a path from a given `url`. The path includes the trailing
-     * `/` from the url.
-     *
-     * @memberof Polymer.ResolveUrl
-     * @param {string} url Input URL to transform
-     * @return {string} resolved path
-     */
-    function pathFromUrl(url) {
-      return url.substring(0, url.lastIndexOf('/') + 1);
-    }
-
-    /**
-     * Module with utilities for resolving relative URL's.
-     *
-     * @namespace
-     * @memberof Polymer
-     * @summary Module with utilities for resolving relative URL's.
-     */
-    Polymer.ResolveUrl = {
-      resolveCss: resolveCss,
-      resolveUrl: resolveUrl,
-      pathFromUrl: pathFromUrl
+    window.Polymer = function (info) {
+      return window.Polymer._polymerFn(info);
     };
+
+    // support user settings on the Polymer object
+    if (userPolymer) {
+      Object.assign(Polymer, userPolymer);
+    }
+
+    // To be plugged by legacy implementation if loaded
+    /* eslint-disable valid-jsdoc */
+    /**
+     * @param {!PolymerInit} info Prototype for the custom element. It must contain
+     *   an `is` property to specify the element name. Other properties populate
+     *   the element prototype. The `properties`, `observers`, `hostAttributes`,
+     *   and `listeners` properties are processed to create element features.
+     * @return {!Object} Returns a custom element class for the given provided
+     *   prototype `info` object. The name of the element if given by `info.is`.
+     */
+    window.Polymer._polymerFn = function (info) {
+      // eslint-disable-line no-unused-vars
+      throw new Error('Load polymer.html to use the Polymer() function.');
+    };
+    /* eslint-enable */
+
+    window.Polymer.version = '2.0.1';
+
+    /* eslint-disable no-unused-vars */
+    /*
+    When using Closure Compiler, JSCompiler_renameProperty(property, object) is replaced by the munged name for object[property]
+    We cannot alias this function, so we have to use a small shim that has the same behavior when not compiling.
+    */
+    window.JSCompiler_renameProperty = function (prop, obj) {
+      return prop;
+    };
+    /* eslint-enable */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
-if (!(guardDef in window.__scriptguards__)) {
-  window.__scriptguards__[guardDef] = true;
-  /*__wc__loader*/
-  __webpack_require__(0);
-
-  (function () {
-
-    'use strict';
-
-    // unique global id for deduping mixins.
-
-    let dedupeId = 0;
-
-    /**
-     * @constructor
-     * @extends {Function}
-     */
-    function MixinFunction() {}
-    /** @type {(WeakMap | undefined)} */
-    MixinFunction.prototype.__mixinApplications;
-    /** @type {(Object | undefined)} */
-    MixinFunction.prototype.__mixinSet;
-
-    /* eslint-disable valid-jsdoc */
-    /**
-     * Wraps an ES6 class expression mixin such that the mixin is only applied
-     * if it has not already been applied its base argument.  Also memoizes mixin
-     * applications.
-     *
-     * @memberof Polymer
-     * @template T
-     * @param {T} mixin ES6 class expression mixin to wrap
-     * @suppress {invalidCasts}
-     */
-    Polymer.dedupingMixin = function (mixin) {
-      let mixinApplications = /** @type {!MixinFunction} */mixin.__mixinApplications;
-      if (!mixinApplications) {
-        mixinApplications = new WeakMap();
-        /** @type {!MixinFunction} */mixin.__mixinApplications = mixinApplications;
-      }
-      // maintain a unique id for each mixin
-      let mixinDedupeId = dedupeId++;
-      function dedupingMixin(base) {
-        let baseSet = /** @type {!MixinFunction} */base.__mixinSet;
-        if (baseSet && baseSet[mixinDedupeId]) {
-          return base;
-        }
-        let map = mixinApplications;
-        let extended = map.get(base);
-        if (!extended) {
-          extended = /** @type {!Function} */mixin(base);
-          map.set(base, extended);
-        }
-        // copy inherited mixin set from the extended class, or the base class
-        // NOTE: we avoid use of Set here because some browser (IE11)
-        // cannot extend a base Set via the constructor.
-        let mixinSet = Object.create( /** @type {!MixinFunction} */extended.__mixinSet || baseSet || null);
-        mixinSet[mixinDedupeId] = true;
-        /** @type {!MixinFunction} */extended.__mixinSet = mixinSet;
-        return extended;
-      }
-
-      return dedupingMixin;
-    };
-    /* eslint-enable valid-jsdoc */
-  })();
-}
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'a9d257423037143d8621978730f4aca5';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
   __webpack_require__(1);
@@ -482,16 +326,16 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
   __webpack_require__(1);
@@ -558,77 +402,196 @@ if (!(guardDef in window.__scriptguards__)) {
     /* eslint-enable valid-jsdoc */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = 'a9d257423037143d8621978730f4aca5';
+if (!(guardDef in (window || global).__scriptguards__)) {
+  window.__scriptguards__[guardDef] = true;
+  /*__wc__loader*/
+  __webpack_require__(2);
+
+  (function () {
+    'use strict';
+
+    let CSS_URL_RX = /(url\()([^)]*)(\))/g;
+    let ABS_URL = /(^\/)|(^#)|(^[\w-\d]*:)/;
+    let workingURL;
+    let resolveDoc;
+    /**
+     * Resolves the given URL against the provided `baseUri'.
+     *
+     * @memberof Polymer.ResolveUrl
+     * @param {string} url Input URL to resolve
+     * @param {?string=} baseURI Base URI to resolve the URL against
+     * @return {string} resolved URL
+     */
+    function resolveUrl(url, baseURI) {
+      if (url && ABS_URL.test(url)) {
+        return url;
+      }
+      // Lazy feature detection.
+      if (workingURL === undefined) {
+        workingURL = false;
+        try {
+          const u = new URL('b', 'http://a');
+          u.pathname = 'c%20d';
+          workingURL = u.href === 'http://a/c%20d';
+        } catch (e) {
+          // silently fail
+        }
+      }
+      if (!baseURI) {
+        baseURI = document.baseURI || window.location.href;
+      }
+      if (workingURL) {
+        return new URL(url, baseURI).href;
+      }
+      // Fallback to creating an anchor into a disconnected document.
+      if (!resolveDoc) {
+        resolveDoc = document.implementation.createHTMLDocument('temp');
+        resolveDoc.base = resolveDoc.createElement('base');
+        resolveDoc.head.appendChild(resolveDoc.base);
+        resolveDoc.anchor = resolveDoc.createElement('a');
+        resolveDoc.body.appendChild(resolveDoc.anchor);
+      }
+      resolveDoc.base.href = baseURI;
+      resolveDoc.anchor.href = url;
+      return resolveDoc.anchor.href || url;
+    }
+
+    /**
+     * Resolves any relative URL's in the given CSS text against the provided
+     * `ownerDocument`'s `baseURI`.
+     *
+     * @memberof Polymer.ResolveUrl
+     * @param {string} cssText CSS text to process
+     * @param {string} baseURI Base URI to resolve the URL against
+     * @return {string} Processed CSS text with resolved URL's
+     */
+    function resolveCss(cssText, baseURI) {
+      return cssText.replace(CSS_URL_RX, function (m, pre, url, post) {
+        return pre + '\'' + resolveUrl(url.replace(/["']/g, ''), baseURI) + '\'' + post;
+      });
+    }
+
+    /**
+     * Returns a path from a given `url`. The path includes the trailing
+     * `/` from the url.
+     *
+     * @memberof Polymer.ResolveUrl
+     * @param {string} url Input URL to transform
+     * @return {string} resolved path
+     */
+    function pathFromUrl(url) {
+      return url.substring(0, url.lastIndexOf('/') + 1);
+    }
+
+    /**
+     * Module with utilities for resolving relative URL's.
+     *
+     * @namespace
+     * @memberof Polymer
+     * @summary Module with utilities for resolving relative URL's.
+     */
+    Polymer.ResolveUrl = {
+      resolveCss: resolveCss,
+      resolveUrl: resolveUrl,
+      pathFromUrl: pathFromUrl
+    };
+  })();
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = '5d8e684485cdb7697d049429fc965a0f';
-if (!(guardDef in window.__scriptguards__)) {
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(2);
 
   (function () {
+
     'use strict';
 
-    const caseMap = {};
-    const DASH_TO_CAMEL = /-[a-z]/g;
-    const CAMEL_TO_DASH = /([A-Z])/g;
+    // unique global id for deduping mixins.
+
+    let dedupeId = 0;
 
     /**
-     * Module with utilities for converting between "dash-case" and "camelCase"
-     * identifiers.
-     *
-     * @namespace
-     * @memberof Polymer
-     * @summary Module that provides utilities for converting between "dash-case"
-     *   and "camelCase".
+     * @constructor
+     * @extends {Function}
      */
-    const CaseMap = {
+    function MixinFunction() {}
+    /** @type {(WeakMap | undefined)} */
+    MixinFunction.prototype.__mixinApplications;
+    /** @type {(Object | undefined)} */
+    MixinFunction.prototype.__mixinSet;
 
-      /**
-       * Converts "dash-case" identifier (e.g. `foo-bar-baz`) to "camelCase"
-       * (e.g. `fooBarBaz`).
-       *
-       * @memberof Polymer.CaseMap
-       * @param {string} dash Dash-case identifier
-       * @return {string} Camel-case representation of the identifier
-       */
-      dashToCamelCase(dash) {
-        return caseMap[dash] || (caseMap[dash] = dash.indexOf('-') < 0 ? dash : dash.replace(DASH_TO_CAMEL, m => m[1].toUpperCase()));
-      },
-
-      /**
-       * Converts "camelCase" identifier (e.g. `fooBarBaz`) to "dash-case"
-       * (e.g. `foo-bar-baz`).
-       *
-       * @memberof Polymer.CaseMap
-       * @param {string} camel Camel-case identifier
-       * @return {string} Dash-case representation of the identifier
-       */
-      camelToDashCase(camel) {
-        return caseMap[camel] || (caseMap[camel] = camel.replace(CAMEL_TO_DASH, '-$1').toLowerCase());
+    /* eslint-disable valid-jsdoc */
+    /**
+     * Wraps an ES6 class expression mixin such that the mixin is only applied
+     * if it has not already been applied its base argument.  Also memoizes mixin
+     * applications.
+     *
+     * @memberof Polymer
+     * @template T
+     * @param {T} mixin ES6 class expression mixin to wrap
+     * @suppress {invalidCasts}
+     */
+    Polymer.dedupingMixin = function (mixin) {
+      let mixinApplications = /** @type {!MixinFunction} */mixin.__mixinApplications;
+      if (!mixinApplications) {
+        mixinApplications = new WeakMap();
+        /** @type {!MixinFunction} */mixin.__mixinApplications = mixinApplications;
+      }
+      // maintain a unique id for each mixin
+      let mixinDedupeId = dedupeId++;
+      function dedupingMixin(base) {
+        let baseSet = /** @type {!MixinFunction} */base.__mixinSet;
+        if (baseSet && baseSet[mixinDedupeId]) {
+          return base;
+        }
+        let map = mixinApplications;
+        let extended = map.get(base);
+        if (!extended) {
+          extended = /** @type {!Function} */mixin(base);
+          map.set(base, extended);
+        }
+        // copy inherited mixin set from the extended class, or the base class
+        // NOTE: we avoid use of Set here because some browser (IE11)
+        // cannot extend a base Set via the constructor.
+        let mixinSet = Object.create( /** @type {!MixinFunction} */extended.__mixinSet || baseSet || null);
+        mixinSet[mixinDedupeId] = true;
+        /** @type {!MixinFunction} */extended.__mixinSet = mixinSet;
+        return extended;
       }
 
+      return dedupingMixin;
     };
-
-    Polymer.CaseMap = CaseMap;
+    /* eslint-enable valid-jsdoc */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '5d8e684485cdb7697d049429fc965a0f';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
   __webpack_require__(1);
@@ -680,24 +643,85 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.CaseMap = CaseMap;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = '5d8e684485cdb7697d049429fc965a0f';
+if (!(guardDef in (window || global).__scriptguards__)) {
+  window.__scriptguards__[guardDef] = true;
+  /*__wc__loader*/
+  __webpack_require__(2);
 
-// elements\\child-element\\child-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'cb25a97b08c38293426ab4bb70255fa6';
-if (!(guardDef in window.__scriptguards__)) {
+  (function () {
+    'use strict';
+
+    const caseMap = {};
+    const DASH_TO_CAMEL = /-[a-z]/g;
+    const CAMEL_TO_DASH = /([A-Z])/g;
+
+    /**
+     * Module with utilities for converting between "dash-case" and "camelCase"
+     * identifiers.
+     *
+     * @namespace
+     * @memberof Polymer
+     * @summary Module that provides utilities for converting between "dash-case"
+     *   and "camelCase".
+     */
+    const CaseMap = {
+
+      /**
+       * Converts "dash-case" identifier (e.g. `foo-bar-baz`) to "camelCase"
+       * (e.g. `fooBarBaz`).
+       *
+       * @memberof Polymer.CaseMap
+       * @param {string} dash Dash-case identifier
+       * @return {string} Camel-case representation of the identifier
+       */
+      dashToCamelCase(dash) {
+        return caseMap[dash] || (caseMap[dash] = dash.indexOf('-') < 0 ? dash : dash.replace(DASH_TO_CAMEL, m => m[1].toUpperCase()));
+      },
+
+      /**
+       * Converts "camelCase" identifier (e.g. `fooBarBaz`) to "dash-case"
+       * (e.g. `foo-bar-baz`).
+       *
+       * @memberof Polymer.CaseMap
+       * @param {string} camel Camel-case identifier
+       * @return {string} Dash-case representation of the identifier
+       */
+      camelToDashCase(camel) {
+        return caseMap[camel] || (caseMap[camel] = camel.replace(CAMEL_TO_DASH, '-$1').toLowerCase());
+      }
+
+    };
+
+    Polymer.CaseMap = CaseMap;
+  })();
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = 'afc8188e4050bd6aa546e6fe5870b368';
+if (!(guardDef in (window || global).__scriptguards__)) {
 	window.__scriptguards__[guardDef] = true;
 	/*__wc__loader*/!function (a) {
-		var b = "<dom-module id=\"child-element\">\n\t<style></style>\n\t<template>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
+		var b = "<dom-module id=\"child-element\">\n\t<template>\n\t\t<style></style>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
 			var c = a.body,
 			    d = a.createElement("div");for (d.innerHTML = b; d.children.length > 0;) c.appendChild(d.children[0]);
 		} else a.write(b);
 	}(document);
-	__webpack_require__(10);
+	__webpack_require__(11);
 
 	class ChildElement extends Polymer.Element {
 		static get is() {
@@ -716,27 +740,27 @@ if (!(guardDef in window.__scriptguards__)) {
 
 	customElements.define(ChildElement.is, ChildElement);
 }
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(8);
-module.exports = __webpack_require__(20);
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(9);
+module.exports = __webpack_require__(21);
 
-// elements\\child-element\\node_modules\\@polymer\\polymer\\polymer-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '54411a239444e878a8abf4a1c1d5b82d';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(11);
+  __webpack_require__(12);
 
   (function () {
     'use strict';
@@ -767,33 +791,33 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Element = Element;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'a07e4e297ecce6abf750b598cc36e303';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
-
-  __webpack_require__(12);
-
-  __webpack_require__(3);
-
-  __webpack_require__(6);
+  __webpack_require__(1);
 
   __webpack_require__(13);
 
-  __webpack_require__(2);
+  __webpack_require__(4);
+
+  __webpack_require__(7);
 
   __webpack_require__(14);
 
+  __webpack_require__(3);
+
   __webpack_require__(15);
+
+  __webpack_require__(16);
 
   (function () {
     'use strict';
@@ -1597,21 +1621,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '45f634a41260c7316f8d1d5ce3dd1286';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   /** @suppress {deprecated} */
   (function () {
@@ -1662,19 +1686,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4ea87f90c5c4eec5acde2469a92ff1a3';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   (function () {
     'use strict';
@@ -1815,21 +1839,21 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.StyleGather = StyleGather;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4bab3ef7196f3e9b445d4dff2c94763e';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   (function () {
     'use strict';
@@ -1954,29 +1978,29 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.DomModule = DomModule;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'f66621cbff6b433476b9eeb2e4a5555a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(3);
-
-  __webpack_require__(16);
-
-  __webpack_require__(6);
+  __webpack_require__(4);
 
   __webpack_require__(17);
 
-  __webpack_require__(19);
+  __webpack_require__(7);
+
+  __webpack_require__(18);
+
+  __webpack_require__(20);
 
   (function () {
 
@@ -4627,19 +4651,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '1f9c1ba8b36ed7dee7e1dc16204b58a1';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
     'use strict';
@@ -4910,25 +4934,25 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Path = Path;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '912b5c75bf738d9830fd0a67066491d2';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(3);
+  __webpack_require__(4);
 
-  __webpack_require__(6);
+  __webpack_require__(7);
 
-  __webpack_require__(18);
+  __webpack_require__(19);
 
   (function () {
 
@@ -5534,19 +5558,19 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'd9017f4f77c4c5499dd8f770ed4a657a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
 
@@ -5740,21 +5764,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '56b0851913eb124ac350606f57540755';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(3);
+  __webpack_require__(4);
 
   (function () {
 
@@ -6222,26 +6246,26 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\parent-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'd5efae7334fab6e67a5d5e8637cf354a';
-if (!(guardDef in window.__scriptguards__)) {
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = 'eb9df032762147075790215b968df2e2';
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/!function (a) {
-    var b = "<dom-module id=\"parent-element\">\n\t<style></style>\n\t<template>\n\t\t<h1>Parent Element</h1>\n\t\t<child-element name=\"test-a\"></child-element>\n\t\t<child-element name=\"test-b\"></child-element>\n\t\t<child-element name=\"test-c\"></child-element>\n\t</template>\n</dom-module>\n";if (a.body) {
+    var b = "<dom-module id=\"parent-element\">\n\t<template>\n\t\t<style></style>\n\t\t<h1>Parent Element</h1>\n\t\t<child-element name=\"test-a\"></child-element>\n\t\t<child-element name=\"test-b\"></child-element>\n\t\t<child-element name=\"test-c\"></child-element>\n\t</template>\n</dom-module>\n";if (a.body) {
       var c = a.body,
           d = a.createElement("div");for (d.innerHTML = b; d.children.length > 0;) c.appendChild(d.children[0]);
     } else a.write(b);
   }(document);
-  __webpack_require__(21);
+  __webpack_require__(22);
 
-  __webpack_require__(8);
+  __webpack_require__(9);
 
   class ParentElement extends Polymer.Element {
     static get is() {
@@ -6251,19 +6275,19 @@ if (!(guardDef in window.__scriptguards__)) {
 
   customElements.define(ParentElement.is, ParentElement);
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\polymer-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '54411a239444e878a8abf4a1c1d5b82d';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(22);
+  __webpack_require__(23);
 
   (function () {
     'use strict';
@@ -6294,33 +6318,33 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Element = Element;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'a07e4e297ecce6abf750b598cc36e303';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
-
-  __webpack_require__(23);
-
-  __webpack_require__(5);
-
-  __webpack_require__(7);
+  __webpack_require__(2);
 
   __webpack_require__(24);
 
-  __webpack_require__(4);
+  __webpack_require__(6);
+
+  __webpack_require__(8);
 
   __webpack_require__(25);
 
+  __webpack_require__(5);
+
   __webpack_require__(26);
+
+  __webpack_require__(27);
 
   (function () {
     'use strict';
@@ -7124,21 +7148,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '45f634a41260c7316f8d1d5ce3dd1286';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
-  __webpack_require__(4);
+  __webpack_require__(5);
 
   /** @suppress {deprecated} */
   (function () {
@@ -7189,19 +7213,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4ea87f90c5c4eec5acde2469a92ff1a3';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(4);
+  __webpack_require__(5);
 
   (function () {
     'use strict';
@@ -7342,21 +7366,21 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.StyleGather = StyleGather;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4bab3ef7196f3e9b445d4dff2c94763e';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
-  __webpack_require__(4);
+  __webpack_require__(5);
 
   (function () {
     'use strict';
@@ -7481,29 +7505,29 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.DomModule = DomModule;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'f66621cbff6b433476b9eeb2e4a5555a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
-  __webpack_require__(5);
-
-  __webpack_require__(27);
-
-  __webpack_require__(7);
+  __webpack_require__(6);
 
   __webpack_require__(28);
 
-  __webpack_require__(30);
+  __webpack_require__(8);
+
+  __webpack_require__(29);
+
+  __webpack_require__(31);
 
   (function () {
 
@@ -10154,19 +10178,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '1f9c1ba8b36ed7dee7e1dc16204b58a1';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
   (function () {
     'use strict';
@@ -10437,25 +10461,25 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Path = Path;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '912b5c75bf738d9830fd0a67066491d2';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
-  __webpack_require__(5);
+  __webpack_require__(6);
 
-  __webpack_require__(7);
+  __webpack_require__(8);
 
-  __webpack_require__(29);
+  __webpack_require__(30);
 
   (function () {
 
@@ -11061,19 +11085,19 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'd9017f4f77c4c5499dd8f770ed4a657a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
   (function () {
 
@@ -11267,21 +11291,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\parent-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '56b0851913eb124ac350606f57540755';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(1);
+  __webpack_require__(2);
 
-  __webpack_require__(5);
+  __webpack_require__(6);
 
   (function () {
 
@@ -11749,6 +11773,7 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

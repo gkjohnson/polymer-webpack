@@ -60,18 +60,42 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
+var g;
 
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\boot.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '55490c2ca8d451fcce04e90fc05cfd71';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
 
@@ -130,20 +154,20 @@ if (!(guardDef in window.__scriptguards__)) {
     /* eslint-enable */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\resolve-url.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'a9d257423037143d8621978730f4aca5';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
     'use strict';
@@ -235,19 +259,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'fb579ba76584cdd13839d113bbf8277c';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
 
@@ -311,19 +335,19 @@ if (!(guardDef in window.__scriptguards__)) {
     /* eslint-enable valid-jsdoc */
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\case-map.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '5d8e684485cdb7697d049429fc965a0f';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
     'use strict';
@@ -372,26 +396,26 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.CaseMap = CaseMap;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\child-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
-const guardDef = 'cb25a97b08c38293426ab4bb70255fa6';
-if (!(guardDef in window.__scriptguards__)) {
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
+const guardDef = 'afc8188e4050bd6aa546e6fe5870b368';
+if (!(guardDef in (window || global).__scriptguards__)) {
 	window.__scriptguards__[guardDef] = true;
 	/*__wc__loader*/!function (a) {
-		var b = "<dom-module id=\"child-element\">\n\t<style></style>\n\t<template>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
+		var b = "<dom-module id=\"child-element\">\n\t<template>\n\t\t<style></style>\n\t\t<h3>Child Element</h3>\n\t\t<div>Child [[name]]</div>\n\t</template>\n</dom-module>\n\n";if (a.body) {
 			var c = a.body,
 			    d = a.createElement("div");for (d.innerHTML = b; d.children.length > 0;) c.appendChild(d.children[0]);
 		} else a.write(b);
 	}(document);
-	__webpack_require__(8);
+	__webpack_require__(9);
 
 	class ChildElement extends Polymer.Element {
 		static get is() {
@@ -410,19 +434,19 @@ if (!(guardDef in window.__scriptguards__)) {
 
 	customElements.define(ChildElement.is, ChildElement);
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\polymer-element.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '54411a239444e878a8abf4a1c1d5b82d';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(9);
+  __webpack_require__(10);
 
   (function () {
     'use strict';
@@ -453,33 +477,33 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Element = Element;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\element-mixin.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'a07e4e297ecce6abf750b598cc36e303';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
-
-  __webpack_require__(10);
-
-  __webpack_require__(3);
-
-  __webpack_require__(4);
+  __webpack_require__(1);
 
   __webpack_require__(11);
 
-  __webpack_require__(2);
+  __webpack_require__(4);
+
+  __webpack_require__(5);
 
   __webpack_require__(12);
 
+  __webpack_require__(3);
+
   __webpack_require__(13);
+
+  __webpack_require__(14);
 
   (function () {
     'use strict';
@@ -1283,21 +1307,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\settings.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '45f634a41260c7316f8d1d5ce3dd1286';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   /** @suppress {deprecated} */
   (function () {
@@ -1348,19 +1372,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\style-gather.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4ea87f90c5c4eec5acde2469a92ff1a3';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   (function () {
     'use strict';
@@ -1501,21 +1525,21 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.StyleGather = StyleGather;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\elements\\dom-module.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '4bab3ef7196f3e9b445d4dff2c94763e';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(2);
+  __webpack_require__(3);
 
   (function () {
     'use strict';
@@ -1640,29 +1664,29 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.DomModule = DomModule;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-effects.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'f66621cbff6b433476b9eeb2e4a5555a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
-
-  __webpack_require__(3);
-
-  __webpack_require__(14);
+  __webpack_require__(1);
 
   __webpack_require__(4);
 
   __webpack_require__(15);
 
-  __webpack_require__(17);
+  __webpack_require__(5);
+
+  __webpack_require__(16);
+
+  __webpack_require__(18);
 
   (function () {
 
@@ -4313,19 +4337,19 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\path.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '1f9c1ba8b36ed7dee7e1dc16204b58a1';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
     'use strict';
@@ -4596,25 +4620,25 @@ if (!(guardDef in window.__scriptguards__)) {
     Polymer.Path = Path;
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\property-accessors.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '912b5c75bf738d9830fd0a67066491d2';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
-
-  __webpack_require__(3);
+  __webpack_require__(1);
 
   __webpack_require__(4);
 
-  __webpack_require__(16);
+  __webpack_require__(5);
+
+  __webpack_require__(17);
 
   (function () {
 
@@ -5220,19 +5244,19 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\utils\\async.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = 'd9017f4f77c4c5499dd8f770ed4a657a';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
   (function () {
 
@@ -5426,21 +5450,21 @@ if (!(guardDef in window.__scriptguards__)) {
     };
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-// elements\\child-element\\node_modules\\@polymer\\polymer\\lib\\mixins\\template-stamp.html
-window.__scriptguards__ = window.__scriptguards__ || {};
+/* WEBPACK VAR INJECTION */(function(global) {
+(window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
 const guardDef = '56b0851913eb124ac350606f57540755';
-if (!(guardDef in window.__scriptguards__)) {
+if (!(guardDef in (window || global).__scriptguards__)) {
   window.__scriptguards__[guardDef] = true;
   /*__wc__loader*/
-  __webpack_require__(0);
+  __webpack_require__(1);
 
-  __webpack_require__(3);
+  __webpack_require__(4);
 
   (function () {
 
@@ -5908,6 +5932,7 @@ if (!(guardDef in window.__scriptguards__)) {
     });
   })();
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

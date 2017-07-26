@@ -5,7 +5,6 @@ module.exports = function(source) {
 
     const guardDef = md5(source.trim().replace(/\w+/g, ''))
     const res = `
-    // ${relPath}
     (window || global).__scriptguards__ = (window || global).__scriptguards__ || {};
     const guardDef = '${guardDef}';
     if(!(guardDef in (window || global).__scriptguards__)) {
