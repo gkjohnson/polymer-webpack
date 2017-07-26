@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/gkjohnson/polymer-webpack#readme",
   "dependencies": {
+    "loader-utils": "^1.1.0",
     "md5": "^2.2.1"
   }
 }
