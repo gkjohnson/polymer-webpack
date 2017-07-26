@@ -4,7 +4,7 @@ const fs = require('fs')
 const config = function(env) {
 
   const elements = fs.readdirSync('./elements')
-  let loaders = [{ loader: 'babel-loader' }, { loader: '../index.js'}, { loader: 'wc-loader' }]
+  let loaders = [{ loader: 'babel-loader' }, { loader: '../index.js?config=guards.config.js'}, { loader: 'wc-loader' }]
   let suffix = ''
   let prefix = ''
   let entry = null
