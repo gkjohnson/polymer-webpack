@@ -2,6 +2,13 @@
 
 Webpack loader that adds a guard based on the source hash around running script content so the same guarded script cannot be included twice
 
+## Installation
+The repo is provided on npm [here](https://www.npmjs.com/package/@gkjohnson/webpack-script-guard).
+
+```
+npm install @gkjohnson/webpack-script-guard
+```
+
 ## Goal
 
 Webcomponents and HTML imports are designed to be self-contained and droppable, but either require a number of polyfills or other framework to support their inclusion. Building a single, self contained `.js` file per import enables a single-file, cross-platform ease-of-use, but can't benefit from the deduping that HTML imports enable, causing runtime errors from code redundancy.
