@@ -8,6 +8,18 @@
     "type": "git",
     "url": "git+https://github.com/gkjohnson/polymer-webpack.git"
   },
+  "keywords": [
+    "webpack",
+    "polymer",
+    "html",
+    "import",
+    "imports",
+    "javascript",
+    "webcomponents",
+    "loader",
+    "deduplication",
+    "deduplicate"
+  ],
   "author": "Garrett Johnson <garrett.kjohnson@gmail.com>",
   "license": "ISC",
   "bugs": {
