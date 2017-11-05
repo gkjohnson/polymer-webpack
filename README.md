@@ -1,13 +1,8 @@
 # webpack-script-guard
 
-Webpack loader that adds a guard based on the source hash around running script content so the same guarded script cannot be included twice
+[![npm version](https://badge.fury.io/js/%40gkjohnson%2Fwebpack-script-guard.svg)](https://www.npmjs.com/package/@gkjohnson/webpack-script-guard)
 
-## Installation
-The repo is provided on npm [here](https://www.npmjs.com/package/@gkjohnson/webpack-script-guard).
-
-```
-npm install @gkjohnson/webpack-script-guard
-```
+Webpack loader that adds a guard based on the source hash around running script content so the same guarded script cannot be included twice.
 
 ## Goal
 
